@@ -1,30 +1,41 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <v-card>
+      <v-layout>
+        <v-navigation-drawer floating permanent color="primary">
+          <v-list density="compact" nav>
+            <v-list-item
+              color="white"
+              prepend-icon="mdi-view-dashboard"
+              title="Home"
+              value="home"
+              to="/"
+            ></v-list-item>
+            <v-list-item
+              color="white"
+              prepend-icon="mdi-account"
+              title="candidates"
+              value="candidates"
+              to="/candidates"
+            ></v-list-item>
+          </v-list>
+        </v-navigation-drawer>
+        <v-main style="height: 100vh">
+          <router-view />
+        </v-main>
+      </v-layout>
+    </v-card>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { defineComponent } from "vue";
 
-nav {
-  padding: 30px;
-}
+export default defineComponent({
+  name: "App",
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data() {
+    return {};
+  },
+});
+</script>
